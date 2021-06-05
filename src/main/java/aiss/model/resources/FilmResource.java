@@ -9,7 +9,7 @@ import org.restlet.resource.ResourceException;
 import aiss.model.Film;
 
 public class FilmResource {
-	private String uri = "https://proyecto-curso-313416.nw.r.appspot.com/";
+	private String uri = "https://proyecto-curso-313416.nw.r.appspot.com/v1/films";
 	//private String uri = "http://localhost:8095/api/lists";
 	
 
