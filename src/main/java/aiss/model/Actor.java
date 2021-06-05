@@ -7,6 +7,24 @@ public class Actor {
 	private String nationality;
 	private String age;
 
+	public Actor() {
+	}
+
+	/**
+	*
+	* @param nationality
+	* @param name
+	* @param id
+	* @param age
+	*/
+	public Actor(String id, String name, String nationality, String age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.nationality = nationality;
+		this.age = age;
+	}
+	
 	public String getId() {
 	return id;
 	}

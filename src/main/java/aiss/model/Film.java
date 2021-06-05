@@ -9,6 +9,26 @@ public class Film {
 	private Integer year;
 	private List<Actor> cast = null;
 	
+	public Film() {
+	}
+
+	/**
+	*
+	* @param cast
+	* @param year
+	* @param name
+	* @param id
+	* @param category
+	*/
+	public Film(String id, String name, String category, Integer year, List<Actor> cast) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.category = category;
+		this.year = year;
+		this.cast = cast;
+	}
+	
 	public String getId() {
 	return id;
 	}
