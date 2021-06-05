@@ -6,70 +6,70 @@ import java.util.Collection;
 import org.restlet.resource.ClientResource;
 import org.restlet.resource.ResourceException;
 
-import aiss.model.Song;
+import aiss.model.Actor;
 
 public class ActorResource {
-	private String uri = "http://localhost:8090/api/songs";
+	private String uri = "https://proyecto-curso-313416.nw.r.appspot.com/v1/actors";
 
 	
-	public Collection<Song> getAll() {
+	public Collection<Actor> getAll() {
 		ClientResource cr = null;
-		Song [] songs = null;
+		Actor [] actors = null;
 		try {
 			cr = new ClientResource(uri);
-			songs = cr.get(Song[].class);
+			actors = cr.get(Actor[].class);
 			
 		} catch (ResourceException re) {
-			System.err.println("Error when retrieving all songs: " + cr.getResponse().getStatus());
+			System.err.println("Error when retrieving all actors: " + cr.getResponse().getStatus());
 			throw re;
 		}
 		
-		return Arrays.asList(songs);
+		return Arrays.asList(actors);
 	}
 	
 
-	public Song getSong(String songId) {
+	public Actor getActor(String actorId) {
 		ClientResource cr = null;
-		Song song = null;
+		Actor actor = null;
 		try {
-			cr = new ClientResource(uri + "/" + songId);
-			song = cr.get(Song.class);
+			cr = new ClientResource(uri + "/" + actorId);
+			actor = cr.get(Actor.class);
 			
 		} catch (ResourceException re) {
-			System.err.println("Error when retrieving the song: " + cr.getResponse().getStatus());
+			System.err.println("Error when retrieving the actor: " + cr.getResponse().getStatus());
 		}
 		
-		return song;
+		return actor;
 
 	}
 	
 
-	public Song addSong(Song song) {
+	public Actor addActor(Actor actor) {
 		ClientResource cr = null;
-		Song resultSong = null;
+		Actor resultActor = null;
 		try {
 			cr = new ClientResource(uri);
-			cr.setEntityBuffering(true);		// Needed for using RESTlet from JUnit tests
-			resultSong = cr.post(song,Song.class);
+			cr.setEntityBuffering(true);
+			resultActor = cr.post(actor,Actor.class);
 			
 		} catch (ResourceException re) {
-			System.err.println("Error when adding the song: " + cr.getResponse().getStatus());
+			System.err.println("Error when adding the actor: " + cr.getResponse().getStatus());
 		}
 		
-		return resultSong;
+		return resultActor;
 	}
 	
-	public boolean updateSong(Song song) {
+	public boolean updateActor(Actor actor) {
 		ClientResource cr = null;
 		boolean success = true;
 		try {
 			cr = new ClientResource(uri);
-			cr.setEntityBuffering(true);		// Needed for using RESTlet from JUnit tests
-			cr.put(song);
+			cr.setEntityBuffering(true);
+			cr.put(actor);
 			
 			
 		} catch (ResourceException re) {
-			System.err.println("Error when updating the song: " + cr.getResponse().getStatus());
+			System.err.println("Error when updating the actor: " + cr.getResponse().getStatus());
 			success = false;
 		}
 		
@@ -77,16 +77,16 @@ public class ActorResource {
 	}
 	
 
-	public boolean deleteSong(String songId) {
+	public boolean deleteActor(String actorId) {
 		ClientResource cr = null;
 		boolean success = true;
 		try {
-			cr = new ClientResource(uri + "/" + songId);
-			cr.setEntityBuffering(true);		// Needed for using RESTlet from JUnit tests
+			cr = new ClientResource(uri + "/" + actorId);
+			cr.setEntityBuffering(true);
 			cr.delete();
 			
 		} catch (ResourceException re) {
-			System.err.println("Error when deleting the song: " + cr.getResponse().getStatus());
+			System.err.println("Error when deleting the actor: " + cr.getResponse().getStatus());
 			success = false;
 			throw re;
 		}

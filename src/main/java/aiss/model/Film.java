@@ -20,6 +20,13 @@ public class Film {
 	* @param id
 	* @param category
 	*/
+	public Film(String name, String category, Integer year, List<Actor> cast) {
+		this.name = name;
+		this.category = category;
+		this.year = year;
+		this.cast = cast;
+	}
+	
 	public Film(String id, String name, String category, Integer year, List<Actor> cast) {
 		super();
 		this.id = id;

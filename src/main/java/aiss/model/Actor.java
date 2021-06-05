@@ -17,6 +17,14 @@ public class Actor {
 	* @param id
 	* @param age
 	*/
+	
+	public Actor(String name, String nationality, String age) {
+		super();
+		this.name = name;
+		this.nationality = nationality;
+		this.age = age;
+	}
+	
 	public Actor(String id, String name, String nationality, String age) {
 		super();
 		this.id = id;

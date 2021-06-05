@@ -1,0 +1,4 @@
+aiss\model\Actor.class
+aiss\model\resources\ActorResource.class
+aiss\model\Film.class
+aiss\model\resources\FilmResource.class
