@@ -66,7 +66,7 @@ public class ActorResourceTest {
 		String actorNationality = "United Kingdom";
 		String actorAge = "83";
 		
-		Actor actor3 = sr.addActor(new Actor(actorName,actorNationality,actorAge));
+		actor3 = sr.addActor(new Actor(actorName,actorNationality,actorAge));
 		
 		assertNotNull("Error when adding the playlist", actor3);
 		assertEquals("The actor's name has not been setted correctly", actorName,actor3.getName());
