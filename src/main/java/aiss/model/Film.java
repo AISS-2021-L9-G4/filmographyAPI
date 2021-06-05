@@ -11,7 +11,16 @@ public class Film {
 	
 	public Film() {
 	}
-
+	
+	public Film(String name) {
+		this.name = name;
+	}
+	
+	public Film(String name, String category, Integer year) {
+		this.name = name;
+		this.category = category;
+		this.year = year;
+	}
 	/**
 	*
 	* @param cast
