@@ -3,6 +3,8 @@ package aiss.model.resources;
 import static org.junit.Assert.*;
 import java.util.Collection;
 
+import org.jboss.resteasy.spi.BadRequestException;
+import org.jboss.resteasy.spi.NotFoundException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -100,13 +102,27 @@ public class ActorResourceTest {
 	@Test
 	public void testDeleteActor() {
 		
-		// Delete actors
-		boolean success = sr.deleteActor(actor2.getId());
+		sr.deleteActor(actor2.getId());
 		
-		assertTrue("Error when deleting the actor", success);
-		
-		Actor actor  = sr.getActor(actor2.getId());
+		Actor actor = sr.getActor(actor2.getId());
 		assertNull("The actor has not been deleted correctly", actor);
 	}
-
+	
+	@Test
+	public void testDeleteActorErrorCode() {
+		try {
+			sr.deleteActor(actor2.getId());
+		} catch (ResourceException e) {
+			assertTrue(e.getStatus().toString().equals("Not Found (404) - The server has not found anything matching the request URI"));
+		}
+	}
+	
+	@Test
+	public void testGetActorErrorCode() {
+		try {
+	    	sr.getActor(actor2.getId());
+		} catch (ResourceException e) {
+			assertTrue(e.getStatus().toString().equals("Not Found (404) - The server has not found anything matching the request URI"));
+		}
+	}
 }
